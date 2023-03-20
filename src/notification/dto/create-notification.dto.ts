@@ -1,4 +1,4 @@
-import { IsString, IsUrl } from 'class-validator'
+import { IsOptional, IsString, IsUrl } from 'class-validator'
 
 export class CreateNotificationDto {
   @IsString()
@@ -12,4 +12,8 @@ export class CreateNotificationDto {
 
   @IsString()
   topic_name: string
+
+  @IsString()
+  @IsOptional()
+  clickAction: string
 }

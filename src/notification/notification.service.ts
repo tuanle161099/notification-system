@@ -20,8 +20,9 @@ export class NotificationService {
     private fcmProvider: FCMProvider,
   ) {}
 
-  async create(createNotificationDto: CreateNotificationDto, userId: string) {
-    const { topic_name, title, thumbnail, description } = createNotificationDto
+  async create(notification: CreateNotificationDto, userId: string) {
+    const { topic_name, title, thumbnail, description, clickAction } =
+      notification
     const name = `${userId}-${topic_name}`
 
     const isExistedTopic = await this.topicService.isExisted(name)
@@ -33,6 +34,7 @@ export class NotificationService {
         title,
         body: description,
         icon: thumbnail,
+        clickAction,
       },
       data: {
         createdAt: new Date().toString(),
@@ -42,7 +44,7 @@ export class NotificationService {
     await this.fcmProvider.sendToTopic(name, messagePayload)
 
     return await new this.notificationModel({
-      ...createNotificationDto,
+      ...notification,
       topic_name: name,
     }).save()
   }

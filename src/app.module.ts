@@ -16,7 +16,7 @@ import { UsersModule } from './users/users.module'
 @Module({
   providers: [FCMProvider],
   exports: [FCMProvider],
-  imports: [UsersModule, AuthModule],
+  imports: [UsersModule],
 })
 export class GlobalModule {}
 
@@ -35,6 +35,7 @@ export class GlobalModule {}
       inject: [ConfigService],
     }),
     GlobalModule,
+    AuthModule,
     NotificationModule,
     TopicModule,
   ],

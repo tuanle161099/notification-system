@@ -15,6 +15,9 @@ export class NotificationModel {
 
   @Prop({ type: String })
   description: string
+
+  @Prop({ type: String, required: false })
+  clickAction: string
 }
 
 export const NotificationSchema =

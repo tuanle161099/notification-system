@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common'
 import { JwtModule } from '@nestjs/jwt'
 import { PassportModule } from '@nestjs/passport'
+import { JWT_SECRET } from 'src/constants'
 
 import { UsersModule } from 'src/users/users.module'
 import { AuthController } from './auth.controller'
@@ -12,7 +13,7 @@ import { JwtStrategy } from './strategies/jwt.strategy'
     UsersModule,
     PassportModule,
     JwtModule.register({
-      secret: 'NOTIFICATION_SECRET',
+      secret: JWT_SECRET,
     }),
   ],
   controllers: [AuthController],
