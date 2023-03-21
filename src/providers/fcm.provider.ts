@@ -12,6 +12,11 @@ export class FCMProvider {
     return data
   }
 
+  async sendToDevice(token: string | string[], message: MessagingPayload) {
+    const data = await this._messaging.sendToDevice(token, message)
+    return data
+  }
+
   async subscribeToTopic(token: string, topic: string) {
     const data = await this._messaging.subscribeToTopic(token, topic)
     return data

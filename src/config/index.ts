@@ -6,6 +6,10 @@ const configuration = () => ({
   jwt: {
     secret: process.env.JWT_SECRET,
   },
+  throttle: {
+    ttl: 60,
+    limit: 50,
+  },
 })
 
 export type EnvironmentVariables = ReturnType<typeof configuration>

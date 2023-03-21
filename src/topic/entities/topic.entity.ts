@@ -9,9 +9,6 @@ export class TopicModel {
 
   @Prop({ type: String })
   owner: string
-
-  @Prop({ type: String })
-  access_token: string
 }
 
 export const TopicSchema = SchemaFactory.createForClass(TopicModel)
