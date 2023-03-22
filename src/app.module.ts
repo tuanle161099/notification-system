@@ -6,13 +6,13 @@ import { ThrottlerModule } from '@nestjs/throttler'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { AuthModule } from './auth/auth.module'
-import configuration, { EnvironmentVariables } from './config'
 
 import { NotificationModule } from './notification/notification.module'
-import { FCMProvider } from './providers/fcm.provider'
 import { TopicModule } from './topic/topic.module'
 import { UsersModule } from './users/users.module'
+import { FCMProvider } from './providers/fcm.provider'
 
+import configuration, { EnvironmentVariables } from './config'
 @Global()
 @Module({
   providers: [FCMProvider],
